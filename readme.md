@@ -33,30 +33,47 @@ Core Concepts: Breadth-First Search (BFS), Multi-hop connectivity analysis, Cycl
 
 Implementation Details:
 Implemented an advanced BFS Reasoner capable of tracing valid paths and reasoning chains between any two entity nodes across infinite hops.
+
 Added structural validation using a state tracking visited set to eliminate infinite recursion and circular loops within highly connected nodes.
+
 Upgraded the vanilla LLM graph extraction module to feed larger data blocks safely into the search algorithm.
 
-Phase 3: Production Graph Infrastructures & Pipelines
+3️⃣ Phase 3: Production Graph Infrastructures & Pipelines
 Notebook File: kg_builder_libraries.ipynb
  
 Core Concepts: Graph databases, Property Graph Models, Cypher querying, State-driven ETL.
+
 Implementation Details:
+
 Migrated from ephemeral in-memory storage to a persistent, containerized Neo4j Graph Database hosted via Docker.
+
 Integrated LangGraph to construct structured state machines that stream extracted entities and write Cypher transaction queries automatically.
+
 Enabled instant visualization and interactive graph analysis using the native web-based Neo4j Browser UI.
 
-Phase 4: Multi-Agent Automated Ingestion
+3️⃣ Phase 4: Multi-Agent Automated Ingestion
+
 Notebook File: kg_builder_with_multi_agent.ipynb
+
 Core Concepts: Agentic workflows, Multi-agent debate, Automated data curation.
+
 Implementation Details:
+
 Implemented Microsoft AutoGen to build an autonomous pipeline ensuring maximum accuracy before database writes.
+
 Data Miner Agent: Parses unstructured text files and extracts structured JSON-formatted relational schemas.
+
 Critic Agent: Reviews the output data against strict ground truths, flagging hallucinated connections or missed relations.
+
 Implemented a consensus gate: the data is pushed to the Neo4j instance only after the Critic yields an explicit APPROVED status.🛠️
 
 
-Tech Stack & Infrastructure
+🛠️ Tech Stack & Infrastructure
+
 Languages: Python 3.10+
+
 LLM & Agent Frameworks: Microsoft AutoGen, LangGraph, OpenAI / Groq APIs
+
 Database & Storage: Neo4j (Graph DBMS), Docker Desktop
+
 Data Interchange: Structured JSON Engine
